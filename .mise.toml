@@ -1,0 +1,3 @@
+[tools]
+uv = "latest"
+task = "latest"

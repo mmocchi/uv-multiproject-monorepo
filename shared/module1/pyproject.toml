@@ -1,0 +1,37 @@
+[project]
+name = "module1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "mmocchi", email = "akihiro.matsumoto.exe@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pytest>=8.3.4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.1",
+    "pytest>=8.3.4",
+    "ruff>=0.9.1",
+]
+
+[tool.ruff]
+# 共通設定ファイルを継承
+extend = "../../shared_config/ruff.toml"
+
+[tool.mypy]
+# 共通設定ファイルの読み込み
+config_file = "../../shared_config/mypy.toml"
+
+# このプロジェクト固有の Python バージョン（共通設定を上書き）
+python_version = "3.11"
+
+[tool.pytest]
+src = ["src"]
