@@ -1,0 +1,49 @@
+version: '3'
+
+tasks:
+  default:
+    desc: タスク一覧を表示
+    cmds:
+      - task --list
+    silent: true
+
+  lint:
+    desc: コードの静的解析を実行 (ruff, mypy)
+    cmds:
+      - task: lint:ruff
+      - task: lint:mypy
+
+  lint:ruff:
+    desc: Ruff による静的解析を実行
+    cmds:
+      - uv run ruff check src
+
+  lint:mypy:
+    desc: mypy による型チェックを実行
+    cmds:
+      - uv run mypy src/
+    sources:
+      - src/**/*.py
+    silent: true
+
+  format:
+    desc: コードのフォーマットを実行
+    cmds:
+      - uv run ruff format .
+    sources:
+      - src/**/*.py
+    silent: true
+
+  check:
+    desc: すべてのチェック（lint, format）を実行
+    cmds:
+      - task: lint
+      - task: format
+
+  watch:
+    desc: ファイルの変更を監視して自動的にチェックを実行
+    cmds:
+      - task: check
+    watch: true
+    sources:
+      - src/**/*.py 

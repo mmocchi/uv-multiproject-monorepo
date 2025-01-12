@@ -23,13 +23,13 @@ select = [
   "UP",  # pyupgrade
   "N",   # pep8-naming
   "D",   # pydocstyle
-  "T20", # flake8-print
   "RET", # flake8-return
 ]
 
 ignore = [
   "D203", # one-blank-line-before-class
   "D212", # multi-line-summary-first-line
+  "D415", #
 ]
 
 [lint.per-file-ignores]

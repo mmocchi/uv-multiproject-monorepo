@@ -1,0 +1,38 @@
+[project]
+name = "application1"
+version = "0.1.0"
+description = "Sample application using module1"
+requires-python = ">=3.10"
+dependencies = [
+    "module1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/application1"] 
+
+[tool.uv.sources]
+module1 = { path = "../../shared/module1", editable = true }
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.1",
+    "ruff>=0.9.1",
+]
+
+[tool.ruff]
+# 共通設定ファイルを継承
+extend = "../../shared_config/ruff.toml"
+
+[tool.mypy]
+# 共通設定ファイルの読み込み
+config_file = "../../shared_config/mypy.toml"
+
+# このプロジェクト固有の Python バージョン（共通設定を上書き）
+python_version = "3.11"
