@@ -9,5 +9,12 @@ wheels/
 # Virtual environments
 .venv
 
+# mypy
+.mypy_cache/
+
+# ruff
+.ruff_cache/
+
+
 # Taskfile
-#.task/
+.task/
