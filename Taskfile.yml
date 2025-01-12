@@ -12,6 +12,7 @@ tasks:
     dir: "{{.ROOT_DIR}}"
     cmds:
       - cd shared/module1 && task check
+      - cd apps/application1 && task check
       # 他のプロジェクトが追加された場合は、ここに追加していく
     silent: false
 
@@ -20,6 +21,7 @@ tasks:
     dir: "{{.ROOT_DIR}}"
     cmds:
       - cd shared/module1 && task lint
+      - cd apps/application1 && task lint
       # 他のプロジェクトが追加された場合は、ここに追加していく
     silent: false
 
@@ -28,6 +30,7 @@ tasks:
     dir: "{{.ROOT_DIR}}"
     cmds:
       - cd shared/module1 && task format
+      - cd apps/application1 && task format
       # 他のプロジェクトが追加された場合は、ここに追加していく
     silent: false
 
@@ -36,5 +39,6 @@ tasks:
     dir: "{{.ROOT_DIR}}"
     cmds:
       - cd shared/module1 && task test
+      - cd apps/application1 && task test
       # 他のプロジェクトが追加された場合は、ここに追加していく
     silent: false 

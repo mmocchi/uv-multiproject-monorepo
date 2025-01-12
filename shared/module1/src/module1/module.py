@@ -1,5 +1,6 @@
 """module1のモジュール"""
 
+
 def add(a: int, b: int) -> int:
     """
     2つの整数を足し合わせる関数

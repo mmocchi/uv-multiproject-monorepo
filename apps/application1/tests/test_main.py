@@ -1,4 +1,5 @@
 """application1のメインモジュールのテスト"""
+
 import pytest
 
 from application1.main import calculate_sum, parse_arguments
@@ -34,4 +35,4 @@ def test_calculate_sum() -> None:
     """計算結果の文字列生成をテスト"""
     assert calculate_sum(1, 2) == "1 + 2 = 3"
     assert calculate_sum(-1, 5) == "-1 + 5 = 4"
-    assert calculate_sum(0, 0) == "0 + 0 = 0" 
+    assert calculate_sum(0, 0) == "0 + 0 = 0"

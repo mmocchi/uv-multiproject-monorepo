@@ -3,8 +3,9 @@ application1のメインモジュール
 
 module1のadd関数を使用して、コマンドライン引数で受け取った2つの整数を足し合わせる
 """
+
 import sys
-from typing import Sequence
+from collections.abc import Sequence
 
 from module1.module import add
 
@@ -29,8 +30,8 @@ def parse_arguments(args: Sequence[str]) -> tuple[int, int]:
         num1 = int(args[0])
         num2 = int(args[1])
         return num1, num2
-    except ValueError:
-        raise ValueError("引数は整数である必要があります")
+    except ValueError as e:
+        raise ValueError("引数は整数である必要があります") from e
 
 
 def calculate_sum(num1: int, num2: int) -> str:
