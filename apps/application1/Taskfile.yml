@@ -17,33 +17,35 @@ tasks:
     desc: Ruff による静的解析を実行
     cmds:
       - uv run ruff check src
+    silent: true
 
   lint:mypy:
     desc: mypy による型チェックを実行
     cmds:
       - uv run mypy src/
-    sources:
-      - src/**/*.py
     silent: true
 
   format:
     desc: コードのフォーマットを実行
     cmds:
       - uv run ruff format .
-    sources:
-      - src/**/*.py
+    silent: true
+
+  test:
+    desc: テストを実行
+    cmds:
+      - uv run pytest
     silent: true
 
   check:
-    desc: すべてのチェック（lint, format）を実行
+    desc: すべてのチェック（lint, format, test）を実行
     cmds:
       - task: lint
       - task: format
+      - task: test
 
   watch:
     desc: ファイルの変更を監視して自動的にチェックを実行
     cmds:
       - task: check
     watch: true
-    sources:
-      - src/**/*.py 

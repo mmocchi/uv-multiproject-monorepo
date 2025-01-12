@@ -8,18 +8,16 @@ tasks:
     silent: true
 
   lint:
-    desc: コードの静的解析を実行 (ruff, mypy)
+    desc: コードの静的解析を実行 (ruff, mypy, import-linter)
     cmds:
       - task: lint:ruff
       - task: lint:mypy
+      - task: lint:imports
 
   lint:ruff:
     desc: Ruff による静的解析を実行
     cmds:
       - uv run ruff check .
-    sources:
-      - src/**/*.py
-      - tests/**/*.py
     silent: true
 
   lint:mypy:
@@ -27,27 +25,24 @@ tasks:
     cmds:
       - uv run mypy src/
       - uv run mypy tests/
-    sources:
-      - src/**/*.py
-      - tests/**/*.py
+    silent: true
+
+  lint:imports:
+    desc: import-linter による依存関係チェックを実行
+    cmds:
+      - uv run lint-imports
     silent: true
 
   format:
     desc: コードのフォーマットを実行
     cmds:
       - uv run ruff format .
-    sources:
-      - src/**/*.py
-      - tests/**/*.py
     silent: true
 
   test:
     desc: テストを実行
     cmds:
       - uv run pytest -v
-    sources:
-      - src/**/*.py
-      - tests/**/*.py
     silent: true
 
   check:
@@ -62,6 +57,3 @@ tasks:
     cmds:
       - task: check
     watch: true
-    sources:
-      - src/**/*.py
-      - tests/**/*.py 

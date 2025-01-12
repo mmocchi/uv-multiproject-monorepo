@@ -23,6 +23,7 @@ module1 = { path = "../../shared/module1", editable = true }
 [dependency-groups]
 dev = [
     "mypy>=1.14.1",
+    "pytest>=8.3.4",
     "ruff>=0.9.1",
 ]
 
@@ -36,3 +37,8 @@ config_file = "../../shared_config/mypy.toml"
 
 # このプロジェクト固有の Python バージョン（共通設定を上書き）
 python_version = "3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --tb=short"

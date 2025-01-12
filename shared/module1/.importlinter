@@ -1,0 +1,12 @@
+[importlinter]
+root_package = module1
+
+include_external_packages = true
+
+[importlinter:contract:1]
+name = module1からapplication1への依存を禁止
+type = forbidden
+source_modules =
+    module1
+forbidden_modules =
+    application1 
