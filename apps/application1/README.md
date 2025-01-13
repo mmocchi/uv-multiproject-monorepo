@@ -11,6 +11,7 @@
 - [mise](https://github.com/mise-rs/mise) - パッケージマネージャー
 - [uv](https://github.com/astral-sh/uv) - 依存関係管理ツール
 - [Task](https://taskfile.dev/) - タスクランナー
+- [pre-commit](https://pre-commit.com/) - Gitフック管理ツール
 
 ### VSCode拡張機能
 

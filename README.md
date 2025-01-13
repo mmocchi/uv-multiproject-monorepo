@@ -15,6 +15,7 @@
 - [uv](https://github.com/astral-sh/uv) - 依存関係管理ツール
 - [Task](https://taskfile.dev/) - タスクランナー
 - [Visual Studio Code](https://code.visualstudio.com/) - 推奨エディタ
+- [pre-commit](https://pre-commit.com/) - Gitフック管理ツール
 
 ### VSCode拡張機能
 
