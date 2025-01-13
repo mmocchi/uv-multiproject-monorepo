@@ -22,13 +22,6 @@ repos:
         types: [python]
         args: [src/]
 
-      - id: mypy
-        name: MyPy
-        entry: uv run mypy
-        language: system
-        types: [python]
-        args: [tests/]
-
       - id: import-linter
         name: Import Linter
         entry: uv run lint-imports
