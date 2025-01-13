@@ -2,14 +2,16 @@ repos:
   - repo: https://github.com/ddanier/sub-pre-commit.git
     rev: v4.0.1
     hooks:
-      - id: module1-pre-commit
+      - id: sub-pre-commit
+        alias: module1
         name: "Module1 pre-commit"
         args: ["-p", "shared/module1"]
         files: ^shared/module1/
-        stages: ["commit"]
+        stages: ["pre-commit"]
 
-      - id: application1-pre-commit
+      - id: sub-pre-commit
+        alias: application1
         name: "Application1 pre-commit"
         args: ["-p", "apps/application1"]
         files: ^apps/application1/
-        stages: ["commit"]
+        stages: ["pre-commit"]
