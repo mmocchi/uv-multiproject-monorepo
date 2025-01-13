@@ -7,7 +7,7 @@
 - `shared/module1`: 共有可能な再利用可能なPythonモジュール
 - `apps/application1`: `module1`を使用したサンプルアプリケーション
 
-## 前提ソフトウェア
+## 推奨ソフトウェア
 
 - Visual Studio Code
 - Python 3.10以上
