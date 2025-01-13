@@ -20,6 +20,8 @@ repos:
         entry: uv run mypy
         language: system
         types: [python]
+        args: [src/]
+
 
       - id: pytest
         name: PyTest
