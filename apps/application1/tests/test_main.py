@@ -1,5 +1,3 @@
-"""application1のメインモジュールのテスト"""
-
 import pytest
 
 from application1.main import calculate_sum, parse_arguments

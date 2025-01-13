@@ -1,0 +1,19 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.analysis.extraPaths": ["${workspaceFolder}/src"],
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.typeCheckingMode": "basic",
+    "ruff.lint.args": ["--config=${workspaceFolder}/pyproject.toml"],
+    "mypy-type-checker.args": [
+        "--ignore-missing-imports",
+        "--disallow-untyped-defs",
+        "--config-file=${workspaceFolder}/pyproject.toml"
+    ],
+}

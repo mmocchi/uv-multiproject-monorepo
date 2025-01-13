@@ -10,19 +10,22 @@ tasks:
   setup:hooks:
     desc: pre-commitフックをインストール
     cmds:
-      - cd shared/module1 && uv pip install -e ".[dev]"
-      - cd apps/application1 && uv pip install -e ".[dev]"
       - pre-commit install
-    silent: true
-
-  update:hooks:
-    desc: pre-commitフックを更新
-    cmds:
-      - pre-commit autoupdate
-    silent: true
 
   check:all:
     desc: すべてのプロジェクトのチェックを実行
     cmds:
       - cd shared/module1 && task check
       - cd apps/application1 && task check 
+
+  lint:all:
+    desc: すべてのプロジェクトのlintを実行
+    cmds:
+      - cd shared/module1 && task lint
+      - cd apps/application1 && task lint 
+
+  format:all:
+    desc: すべてのプロジェクトのformatを実行
+    cmds:
+      - cd shared/module1 && task format
+      - cd apps/application1 && task format 

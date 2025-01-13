@@ -1,0 +1,22 @@
+{
+    "folders": [
+        {
+            "name": "application1",
+            "path": "apps/application1"
+        },
+        {
+            "name": "module1",
+            "path": "shared/module1"
+        },
+        {
+            "name": "root",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "apps/": true,
+            "shared/": true
+        }
+    }
+} 

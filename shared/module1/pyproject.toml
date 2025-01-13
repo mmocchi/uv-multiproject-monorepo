@@ -31,6 +31,8 @@ extend = "../../shared_config/ruff.toml"
 # 共通設定ファイルの読み込み
 config_file = "../../shared_config/mypy.toml"
 
+mypy_path = ["src"]
+
 # このプロジェクト固有の Python バージョン（共通設定を上書き）
 python_version = "3.11"
 

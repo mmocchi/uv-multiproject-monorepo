@@ -20,18 +20,23 @@ repos:
         entry: uv run mypy
         language: system
         types: [python]
-        args: [src/, tests/]
+        args: [src/]
+
+      - id: mypy
+        name: MyPy
+        entry: uv run mypy
+        language: system
+        types: [python]
+        args: [tests/]
 
       - id: import-linter
         name: Import Linter
         entry: uv run lint-imports
         language: system
         types: [python]
-        pass_filenames: false
 
       - id: pytest
         name: PyTest
         entry: uv run pytest
         language: system
         types: [python]
-        pass_filenames: false 
