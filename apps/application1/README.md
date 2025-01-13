@@ -1,25 +1,65 @@
 # Application1
 
-module1を使用したサンプルアプリケーション
+## プロジェクトの概要
 
-## 概要
+このプロジェクトは、`module1`を使用したサンプルアプリケーションです。Python 3.10以上で動作する、モジュール化されたアプリケーションの実装例を提供します。
 
-コマンドライン引数で受け取った2つの整数を足し合わせて結果を表示します。
-module1パッケージの `add` 関数を使用しています。
+## 前提ソフトウェア
 
-## 使用方法
+- Visual Studio Code
+- Python 3.10以上
+- [mise](https://github.com/mise-rs/mise) - パッケージマネージャー
+- [uv](https://github.com/astral-sh/uv) - 依存関係管理ツール
+- [Task](https://taskfile.dev/) - タスクランナー
 
+### VSCode拡張機能
+
+- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - Python言語サポート
+- [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Pythonリンター
+- [Mypy Type Checker](https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker) - Mypyのサポート
+
+## セットアップ手順
+
+1. Python仮想環境の作成
 ```bash
-# 引数として2つの整数を指定して実行
-python -m application1.main 1 2
-
-# 実行結果
-1 + 2 = 3
+cd apps/application1
+uv sync
 ```
 
-## エラーケース
+## 開発用コマンド
 
-- 引数が2つでない場合
-- 引数が整数でない場合
+以下のコマンドは`task`を使用して実行できます：
 
-これらのケースではエラーメッセージを表示して終了します。 
+### リンターとフォーマッター
+
+- コード解析の実行:
+```bash
+task lint        # ruffとmypyによる静的解析
+task lint:ruff   # ruffのみ実行
+task lint:mypy   # myypのみ実行
+```
+
+- コードフォーマット:
+```bash
+task format      # コードフォーマットの実行
+task fix:ruff    # ruffによる自動修正
+```
+
+### テスト
+
+- テストの実行:
+```bash
+task test        # pytestによるテスト実行
+```
+
+### 統合コマンド
+
+- すべてのチェックを実行:
+```bash
+task check       # lint, format, testをすべて実行
+```
+
+- 開発モード（ファイル変更の監視）:
+```bash
+task watch       # ファイル変更を監視して自動的にチェックを実行
+```
