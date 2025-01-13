@@ -7,6 +7,7 @@ repos:
         language: system
         types: [python]
         args: [src, tests]
+        stages: [commit, manual]
 
       - id: ruff-check
         name: Ruff Check
@@ -14,22 +15,31 @@ repos:
         language: system
         types: [python]
         args: [src, tests]
+        stages: [commit, manual]
 
       - id: mypy
         name: MyPy
         entry: uv run mypy
         language: system
         types: [python]
-        args: [src/]
+        args: ["--package", "module1"]
+        pass_filenames: false
+        stages: [commit, manual]
+        additional_dependencies: []
+        files: ^(src/|tests/)
 
       - id: import-linter
         name: Import Linter
         entry: uv run lint-imports
         language: system
         types: [python]
+        pass_filenames: false
+        stages: [commit, manual]
 
       - id: pytest
         name: PyTest
         entry: uv run pytest
         language: system
         types: [python]
+        pass_filenames: false
+        stages: [commit, manual]

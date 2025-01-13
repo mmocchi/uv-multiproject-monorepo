@@ -62,4 +62,7 @@ tasks:
     desc: ファイルの変更を監視して自動的にチェックを実行
     cmds:
       - task: check
+    sources:
+      - src/**/*.py
+      - tests/**/*.py
     watch: true
