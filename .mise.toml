@@ -1,3 +1,4 @@
 [tools]
 uv = "latest"
 task = "latest"
+pre-commit = "latest"

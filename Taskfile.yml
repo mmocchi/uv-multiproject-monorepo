@@ -7,38 +7,22 @@ tasks:
       - task --list
     silent: true
 
+  setup:hooks:
+    desc: pre-commitフックをインストール
+    cmds:
+      - cd shared/module1 && uv pip install -e ".[dev]"
+      - cd apps/application1 && uv pip install -e ".[dev]"
+      - pre-commit install
+    silent: true
+
+  update:hooks:
+    desc: pre-commitフックを更新
+    cmds:
+      - pre-commit autoupdate
+    silent: true
+
   check:all:
     desc: すべてのプロジェクトのチェックを実行
-    dir: "{{.ROOT_DIR}}"
     cmds:
       - cd shared/module1 && task check
-      - cd apps/application1 && task check
-      # 他のプロジェクトが追加された場合は、ここに追加していく
-    silent: false
-
-  lint:all:
-    desc: すべてのプロジェクトの静的解析を実行
-    dir: "{{.ROOT_DIR}}"
-    cmds:
-      - cd shared/module1 && task lint
-      - cd apps/application1 && task lint
-      # 他のプロジェクトが追加された場合は、ここに追加していく
-    silent: false
-
-  format:all:
-    desc: すべてのプロジェクトのフォーマットを実行
-    dir: "{{.ROOT_DIR}}"
-    cmds:
-      - cd shared/module1 && task format
-      - cd apps/application1 && task format
-      # 他のプロジェクトが追加された場合は、ここに追加していく
-    silent: false
-
-  test:all:
-    desc: すべてのプロジェクトのテストを実行
-    dir: "{{.ROOT_DIR}}"
-    cmds:
-      - cd shared/module1 && task test
-      - cd apps/application1 && task test
-      # 他のプロジェクトが追加された場合は、ここに追加していく
-    silent: false 
+      - cd apps/application1 && task check 
